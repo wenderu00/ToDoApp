@@ -9,7 +9,7 @@ using ToDo.Domain.Commands.Contracts;
 
 namespace ToDo.Domain.Commands
 {
-    internal class UpdateTodoCommand : Notifiable, ICommand
+    public class UpdateTodoCommand : Notifiable, ICommand
     {
         public UpdateTodoCommand() { }
         public UpdateTodoCommand(Guid id,string title,string user)

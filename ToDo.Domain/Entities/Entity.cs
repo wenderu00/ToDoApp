@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDo.Domain.Entities
 {
-    internal abstract class Entity : IEquatable<Entity>
+    public abstract class Entity : IEquatable<Entity>
     {
         public Entity()
         {

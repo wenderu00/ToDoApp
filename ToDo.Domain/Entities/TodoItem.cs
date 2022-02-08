@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDo.Domain.Entities
 {
-    internal class TodoItem : Entity
+    public class TodoItem : Entity
     {
         public TodoItem(string title,string user, DateTime date)
         {

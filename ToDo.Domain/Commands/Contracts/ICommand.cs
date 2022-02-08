@@ -1,9 +1,8 @@
-﻿
+﻿using Flunt.Validations;
 
 namespace ToDo.Domain.Commands.Contracts
 {
-    public interface ICommand
+    public interface ICommand : IValidatable
     {
-        void Validate();
     }
 }

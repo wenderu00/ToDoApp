@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ToDo.Domain.Handlers;
 using ToDo.Domain.Infra.Contexts;
 using ToDo.Domain.Infra.Repositories;
 using ToDo.Domain.Repositories;
@@ -13,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TodoContext>(opt=>opt.UseInMemoryDatabase("Database"));
 builder.Services.AddTransient<ITodoRepository, TodoRepository>();
+builder.Services.AddTransient<TodoHandler,TodoHandler>();
 
 
 var app = builder.Build();

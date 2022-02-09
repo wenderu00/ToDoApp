@@ -4,7 +4,7 @@ using ToDo.Domain.Entities;
 
 namespace ToDo.Domain.Infra.Contexts
 {
-    internal class TodoContext :DbContext
+    public class TodoContext :DbContext
     {
         public TodoContext(DbContextOptions<TodoContext> options) : base(options)
         {

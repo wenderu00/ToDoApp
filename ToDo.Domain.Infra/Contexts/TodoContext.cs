@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Design;
+using ToDo.Domain.Entities;
 
 namespace ToDo.Domain.Infra.Contexts
 {
@@ -12,6 +9,17 @@ namespace ToDo.Domain.Infra.Contexts
         public TodoContext(DbContextOptions<TodoContext> options) : base(options)
         {
 
+        }
+        public DbSet<TodoItem> Todos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TodoItem>().ToTable("Todo");
+            modelBuilder.Entity<TodoItem>().Property(x => x.Id);
+            modelBuilder.Entity<TodoItem>().Property(x => x.User).HasMaxLength(120).HasColumnType("varchar(120)");
+            modelBuilder.Entity<TodoItem>().Property(x => x.Title).HasMaxLength(160).HasColumnType("varchar(160)");
+            modelBuilder.Entity<TodoItem>().Property(x => x.Done).HasColumnType("bit");
+            modelBuilder.Entity<TodoItem>().Property(x => x.Date);
+            modelBuilder.Entity<TodoItem>().HasIndex(x => x.User);
         }
     }
 }
